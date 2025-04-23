@@ -5,6 +5,14 @@ interface TextoCostomizavelType  {
     size: string;
 };
 
+interface DivThreadsOuRespostasType {
+    outlined: string;
+};
+
+interface ContainerThreadsType {
+    display?: string
+}
+
 export const GlobalStyles = createGlobalStyle`
     body {
         background-color: #101010;
@@ -95,6 +103,7 @@ export const BotaoThreads = styled.button`
     color: #616161;
     font-size: 15px;
     letter-spacing: 0.2px;
+    cursor: pointer;
 `;
 
 export const FotoPerfil = styled.img`
@@ -120,6 +129,7 @@ export const TextoBiografia = styled.h3`
     color: #f3f5f7;
     font-weight: 300;
     margin-top: 2px;
+    
 `;
 
 export const ContainerSeguidoresLink = styled.div`
@@ -127,6 +137,7 @@ export const ContainerSeguidoresLink = styled.div`
     flex-direction: row;
     width: 100%;
     margin-top: 20px;
+    margin-left: 5px;
 `;
 
 export const DivseguidoresLink = styled.div`
@@ -136,6 +147,12 @@ export const DivseguidoresLink = styled.div`
     align-items: flex-start;
     justify-content: flex-start;
     flex: 2;
+    letter-spacing: 0.5;
+
+    a {
+        text-decoration: none;
+        color: #616161;
+    }
 `;
 
 export const DivIconeInstagram = styled.div`
@@ -143,8 +160,9 @@ export const DivIconeInstagram = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: flex-end;
     flex: 1;
-    background-color: aqua;
+    gap: 5px;
 `;
 
 export const TextoCostomizavel = styled.p<TextoCostomizavelType>`
@@ -154,4 +172,34 @@ export const TextoCostomizavel = styled.p<TextoCostomizavelType>`
     font-size: ${(props) => (props.size ? `${props.size}px` : '12px')};
     letter-spacing: 0.2px;
    
+`;
+
+export const LogoRedesSociais = styled.img`
+    width: 100%;
+    max-width: 23px;
+    cursor: pointer;
+    margin-right: 1px;
+`;
+
+export const ContainerThreadsOuRespostas = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 0px;
+`;
+
+export const DivThreadsOuRespostas = styled.div<DivThreadsOuRespostasType>`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    border-bottom: ${(props) => props.outlined === "true" ? "1px solid lightgray" : "0px"};
+    cursor: pointer;
+
+`;
+
+export const ContainerThreads = styled.div<ContainerThreadsType>`
+    display: ${(props) => props.display ? props.display : "flex"};
 `;
