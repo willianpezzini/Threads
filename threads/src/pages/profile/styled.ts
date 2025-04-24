@@ -5,12 +5,20 @@ interface TextoCostomizavelType  {
     size: string;
 };
 
+interface IconeType {
+    width?: string;
+}
+
 interface DivThreadsOuRespostasType {
     outlined: string;
 };
 
 interface ContainerThreadsType {
     display?: string
+};
+
+interface FotoPerfilType {
+    maxWidth?: string
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -106,10 +114,10 @@ export const BotaoThreads = styled.button`
     cursor: pointer;
 `;
 
-export const FotoPerfil = styled.img`
+export const FotoPerfil = styled.img<FotoPerfilType>`
     border-radius: 50%;
     width: 100%;
-    max-width: 80px;
+    max-width: ${(props) => props.maxWidth ? `${props.maxWidth}px` : '40' };
 `;
 
 export const Biografia = styled.div`
@@ -170,13 +178,13 @@ export const TextoCostomizavel = styled.p<TextoCostomizavelType>`
     margin: 0;
     color: ${(props) => (props.color ? props.color : 'white')};
     font-size: ${(props) => (props.size ? `${props.size}px` : '12px')};
-    letter-spacing: 0.2px;
+    letter-spacing: 0.5px;
    
 `;
 
-export const LogoRedesSociais = styled.img`
+export const Icone = styled.img`
     width: 100%;
-    max-width: 23px;
+    max-width: ${(props) => props.width ? `${props.width}px` : '23px'};
     cursor: pointer;
     margin-right: 1px;
 `;
@@ -186,6 +194,7 @@ export const ContainerThreadsOuRespostas = styled.div`
     flex-direction: row;
     width: 100%;
     margin-top: 20px;
+    margin-bottom: 10px;
     padding: 15px 0px;
 `;
 
@@ -202,4 +211,39 @@ export const DivThreadsOuRespostas = styled.div<DivThreadsOuRespostasType>`
 
 export const ContainerThreads = styled.div<ContainerThreadsType>`
     display: ${(props) => props.display ? props.display : "flex"};
+    width: 100%;
+`;
+
+export const DivFotoPerfilContainer = styled.div`
+    display: flex;
+    flex: 1;
+    width: 100%;
+`;
+
+export const DivPostThreadsContainer = styled.div`
+    display: flex;
+    flex: 8;
+    width: 100%;
+    color: aliceblue;
+    margin-left: -15px;
+`;
+
+export const DivHeaderPostContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+`;
+
+export const PerfilThreads = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start
+    cursor: pointer;
+`;
+
+export const TempoDoPost = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 `;
