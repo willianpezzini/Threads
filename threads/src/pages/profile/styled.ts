@@ -238,7 +238,7 @@ export const DivHeaderPostContainer = styled.div`
 export const PerfilThreads = styled.div`
     display: flex;
     flex-direction: row;
-    align-items:flex-start
+    align-items:flex-start;
     cursor: pointer;
 `;
 
