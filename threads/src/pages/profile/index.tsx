@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 
-import { Container, Logo, Header, DivNome, DivFotoPerfil, Nome, NomeDePerfil, BotaoThreads, DivNomePerfil, FotoPerfil, Biografia, TextoBiografia, ContainerSeguidoresLink, DivseguidoresLink, DivIconeInstagram, TextoCostomizavel, LogoRedesSociais, ContainerThreadsOuRespostas, DivThreadsOuRespostas, ContainerThreads} from "./styled";
+import { Container, Logo, Header, DivNome, DivFotoPerfil, Nome, NomeDePerfil, BotaoThreads, DivNomePerfil, FotoPerfil, Biografia, TextoBiografia, ContainerSeguidoresLink, DivseguidoresLink, DivIconeInstagram, TextoCostomizavel, Icone, ContainerThreadsOuRespostas, DivThreadsOuRespostas, ContainerThreads, DivFotoPerfilContainer, DivPostThreadsContainer, DivHeaderPostContainer, PerfilThreads, TempoDoPost} from "./styled";
 
 import LogoSVG from "../../assets/icons/logo.svg";
 import FotoDePerfil from "../../assets/images/perfil.jpg";
 import LogoInstagram from "../../assets/icons/instagram-logo.svg";
 import LogoGitHub from "../../assets/icons/github-logo.svg";
 import BotaoMore from "../../assets/icons/more-circle.svg";
+import More from "../../assets/icons/more-svg.svg";
 
 const Profile = () => {
 
@@ -19,14 +20,14 @@ const Profile = () => {
 
             <Header>
                 <DivNome>
-                    <Nome>Willian Pezzini</Nome>
+                    <Nome>Willian H. Pezzini</Nome>
                     <DivNomePerfil>
-                        <NomeDePerfil>willianPezzini</NomeDePerfil> 
+                        <NomeDePerfil>willianpezzini</NomeDePerfil> 
                         <BotaoThreads>threads.net</BotaoThreads>
                     </DivNomePerfil>
                 </DivNome>
                 <DivFotoPerfil>
-                    <FotoPerfil src={FotoDePerfil}></FotoPerfil>
+                    <FotoPerfil src={FotoDePerfil} maxWidth="80"></FotoPerfil>
                 </DivFotoPerfil>
             </Header>
 
@@ -60,9 +61,9 @@ const Profile = () => {
                 </DivseguidoresLink>
                    
                 <DivIconeInstagram>
-                    <LogoRedesSociais src={LogoInstagram}></LogoRedesSociais>
-                    <LogoRedesSociais src={LogoGitHub}></LogoRedesSociais>
-                    <LogoRedesSociais src={BotaoMore}></LogoRedesSociais>
+                    <Icone src={LogoInstagram}></Icone>
+                    <Icone src={LogoGitHub}></Icone>
+                    <Icone src={BotaoMore}></Icone>
                 </DivIconeInstagram>
             </ContainerSeguidoresLink>
 
@@ -77,7 +78,21 @@ const Profile = () => {
             </ContainerThreadsOuRespostas>
 
             <ContainerThreads display={ThreadsOuRespostas === "threads" ? "flex" : "none"}>
-                <TextoCostomizavel color="red" size="20">Teste</TextoCostomizavel>
+                <DivFotoPerfilContainer>
+                    <FotoPerfil src={FotoDePerfil} maxWidth='45'></FotoPerfil>
+                </DivFotoPerfilContainer>
+
+                <DivPostThreadsContainer>
+                    <DivHeaderPostContainer>
+                        <PerfilThreads>
+                            <TextoCostomizavel color="#ffffff" size="15">willianpezzini</TextoCostomizavel>
+                        </PerfilThreads>
+                        <TempoDoPost>
+                            <TextoCostomizavel color="#616161" size="15">3 sem</TextoCostomizavel>
+                            <Icone width='32' src={More}></Icone>
+                        </TempoDoPost>
+                    </DivHeaderPostContainer>
+                </DivPostThreadsContainer>
             </ContainerThreads>
         </Container>
 
