@@ -3,10 +3,15 @@ import styled, { createGlobalStyle } from "styled-components";
 interface TextoCostomizavelType  {
     color: string;
     size: string;
+    marginTop?: string;
+    marginLeft?: string;
+    weight?: string;
 };
 
 interface IconeType {
     width?: string;
+    marginBottom?: string;
+    marginLeft?: string;
 }
 
 interface DivThreadsOuRespostasType {
@@ -179,14 +184,18 @@ export const TextoCostomizavel = styled.p<TextoCostomizavelType>`
     color: ${(props) => (props.color ? props.color : 'white')};
     font-size: ${(props) => (props.size ? `${props.size}px` : '12px')};
     letter-spacing: 0.5px;
-   
+    margin-top: ${(props) => (props.marginTop ? `${props.marginTop}px` : '0px')};
+    margin-left: ${(props) => (props.marginLeft ? `${props.marginLeft}px` : '0px')};
+    font-weight: ${(props) => (props.weight ? props.weight : '300')};
 `;
 
-export const Icone = styled.img`
+export const Icone = styled.img<IconeType>`
     width: 100%;
     max-width: ${(props) => props.width ? `${props.width}px` : '23px'};
     cursor: pointer;
     margin-right: 1px;
+    margin-bottom: ${(props) => props.marginBottom ? `${props.marginBottom}px` : '0px'};
+    margin-left: ${(props) => props.marginLeft? `${props.marginLeft}px` : '0px'};
 `;
 
 export const ContainerThreadsOuRespostas = styled.div`
@@ -218,14 +227,16 @@ export const DivFotoPerfilContainer = styled.div`
     display: flex;
     flex: 1;
     width: 100%;
+    max-height: 47px;
 `;
 
 export const DivPostThreadsContainer = styled.div`
     display: flex;
+    flex-direction: column;
     flex: 8;
     width: 100%;
     color: aliceblue;
-    margin-left: -15px;
+    margin-left: -8px;
 `;
 
 export const DivHeaderPostContainer = styled.div`
@@ -238,7 +249,7 @@ export const DivHeaderPostContainer = styled.div`
 export const PerfilThreads = styled.div`
     display: flex;
     flex-direction: row;
-    align-items:flex-start
+    align-items:flex-start;
     cursor: pointer;
 `;
 
@@ -246,4 +257,45 @@ export const TempoDoPost = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+`;
+
+export const DivPost = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+`;
+
+export const DivInteracaoPost = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 18px 0px;
+    gap: 10px;
+    cursor: pointer;
+`;
+
+export const ContainerDownload = styled.div`
+    background-color: #0a0a0a;
+    margin-top: 35px;
+    width: 100%;
+    border-radius: 15px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+`;
+
+export const BotaoBaixarApp = styled.button`
+    background-color: transparent;
+    border: 1px solid #5d5d5d;
+    color: #f3f5f7;
+    padding: 6px 12px;
+    margin-top: 30px;
+    border-radius: 10px;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 300;
 `;
